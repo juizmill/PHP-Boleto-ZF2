@@ -10,18 +10,32 @@
             "name": "João G. Zanon Jr.",
             "email": "jot@jot.com.br"
         },
-	{
+        {
             "name": "Matheus Ferreira Silva",
             "email": "santana.matheusferreira@gmail.com"
-	}
+        }
     ],
+    "minimum-stability": "dev",
+    "prefer-stable": true,
     "require": {
-        "php": ">=5.4.0",
-        "dino/dompdf-module": "dev-master"
+        "php": "^7.0",
+        "zendframework/zend-mvc": "^3.1",
+        "zendframework/zend-view": "^2.9",
+        "zendframework/zend-stdlib": "^3.1",
+        "dino/dompdf-module": "dev-master",
+        "zendframework/zend-barcode": "^2.6",
+        "zendframework/zend-hydrator": "^2.2",
+        "zendframework/zend-form": "^2.10"
     },
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/juizmill/DOMPDFModule"
+        }
+    ],
     "autoload": {
-        "psr-0": {
-            "PhpBoletoZf2": "src/"
+        "psr-4": {
+            "PhpBoletoZf2\\": "src/"
         }
     }
 }

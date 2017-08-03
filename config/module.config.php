@@ -20,6 +20,12 @@
 
 namespace PhpBoletoZf2;
 
+use PhpBoletoZf2\Controller\Factory\BancoobControllerFactory;
+use PhpBoletoZf2\Controller\Factory\BBControllerFactory;
+use PhpBoletoZf2\Controller\Factory\BradescoControllerFactory;
+use PhpBoletoZf2\Controller\Factory\CaixaSigcbControllerFactory;
+use PhpBoletoZf2\Controller\Factory\ItauControllerFactory;
+
 return array(
     'router' => array(
         'routes' => array(
@@ -65,14 +71,24 @@ return array(
         ),
     ),
     'controllers' => array(
-        'invokables' => array(
-            'PhpBoletoZf2\Controller\Bradesco'   => 'PhpBoletoZf2\Controller\BradescoController',
-            'PhpBoletoZf2\Controller\BB'         => 'PhpBoletoZf2\Controller\BBController',
-            'PhpBoletoZf2\Controller\Caixa'      => 'PhpBoletoZf2\Controller\CaixaController',
-            'PhpBoletoZf2\Controller\CaixaSigcb' => 'PhpBoletoZf2\Controller\CaixaSigcbController',
-            'PhpBoletoZf2\Controller\Itau'       => 'PhpBoletoZf2\Controller\ItauController',
-            'PhpBoletoZf2\Controller\Bancoob'     => 'PhpBoletoZf2\Controller\BancoobController',
+        'factories' => array(
+            'PhpBoletoZf2\Controller\Bradesco'   => BradescoControllerFactory::class,
+            'PhpBoletoZf2\Controller\BB'         => BBControllerFactory::class,
+            'PhpBoletoZf2\Controller\CaixaSigcb' => CaixaSigcbControllerFactory::class,
+            'PhpBoletoZf2\Controller\Itau'       => ItauControllerFactory::class,
+            'PhpBoletoZf2\Controller\Bancoob'    => BancoobControllerFactory::class,
         ),
+    ),
+    'service_manager' => array(
+        'factories' => array(
+            'Boleto\Bradesco'   => 'PhpBoletoZf2\Factory\Bradesco',
+            'Boleto\BB'         => 'PhpBoletoZf2\Factory\BB',
+            'Boleto\Caixa'      => 'PhpBoletoZf2\Factory\Caixa',
+            'Boleto\CaixaSigcb' => 'PhpBoletoZf2\Factory\CaixaSigcb',
+            'Boleto\Itau'       => 'PhpBoletoZf2\Factory\Itau',
+            'Boleto\santander'  => 'PhpBoletoZf2\Factory\Santander',
+            'Boleto\Bancoob'     => 'PhpBoletoZf2\Factory\Bancoob',
+        )
     ),
     'view_manager' => array(
         'display_not_found_reason' => true,
