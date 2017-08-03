@@ -1,5 +1,5 @@
 {
-    "name": "jotjunior/php-boleto-zf2",
+    "name": "juizmill/php-boleto-zf2",
     "type": "module",
     "description": "Adaptação do BoletoPHP para Zend Framework 2",
     "keywords": ["boleto", "php", "zf2"],
@@ -24,8 +24,15 @@
         "zendframework/zend-stdlib": "^3.1",
         "zendframework/zend-barcode": "^2.6",
         "zendframework/zend-hydrator": "^2.2",
-        "zendframework/zend-form": "^2.10"
+        "zendframework/zend-form": "^2.10",
+        "dino/dompdf-module": "dev-master"
     },
+    "repositories": [
+        {
+            "type": "git",
+            "url": "https://github.com/juizmill/DOMPDFModule"
+        }
+    ],
     "autoload": {
         "psr-4": {
             "PhpBoletoZf2\\": "src/"
